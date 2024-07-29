@@ -29,4 +29,3 @@ alias dev="cd Developer"
 alias cd="z"
 
 eval "$(zoxide init zsh)"
-eval "$(zoxide init zsh)"
