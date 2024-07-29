@@ -21,7 +21,7 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-alias ls="eza --icons=always"
+alias ls="eza -a --icons=always"
 alias reload-zsh="source ~/.zshrc"
 alias edit-zsh="nvim ~/.zshrc"
 alias vim="nvim"
