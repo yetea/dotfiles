@@ -21,11 +21,13 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+# aliases
 alias ls="eza -a --icons=always"
 alias reload-zsh="source ~/.zshrc"
 alias edit-zsh="nvim ~/.zshrc"
 alias vim="nvim"
 alias dev="cd Developer"
 alias cd="z"
+alias c="clear"
 
 eval "$(zoxide init zsh)"
