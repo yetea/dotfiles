@@ -42,9 +42,9 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		keys = {
-			{ "<leader>cn", "<cmd>ConvertFindNext<CR>", desc = "Find next convertable unit" },
-			{ "<leader>cc", "<cmd>ConvertFindCurrent<CR>", desc = "Find convertable unit in current line" },
-			{ "<leader>ca", "<cmd>ConvertAll<CR>", desc = "Convert all of a specified unit" },
+			{ "<leader>cf", "<cmd>ConvertFindNext<CR>", desc = "Find next convertable unit" },
+			{ "<leader>ci", "<cmd>ConvertFindCurrent<CR>", desc = "Find convertable unit in current line" },
+			{ "<leader>cx", "<cmd>ConvertAll<CR>", desc = "Convert all of a specified unit" },
 		},
 	},
 	{

@@ -26,8 +26,8 @@ return {
 			require("mason").setup()
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
-				"prettier", -- prettier formatter
-				"biome", -- prettier formatter
+				"prettier", -- js/ts formatter
+				"biome", -- js/ts formatter
 				"stylua", -- lua formatter
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
