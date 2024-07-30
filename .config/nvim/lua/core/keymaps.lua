@@ -56,3 +56,18 @@ keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Ma
 keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end, { desc = "Source current file" })
+
+-- Vim visual multi
+local function visual_cursors_with_delay()
+	-- Execute the vm-visual-cursors command.
+	vim.cmd('silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"')
+	-- Introduce delay via VimScript's 'sleep' (set to 500 milliseconds here).
+	vim.cmd("sleep 200m")
+	-- Press 'A' in normal mode after the delay.
+	vim.cmd('silent! execute "normal! A"')
+end
+keymap.set("n", "<leader>va", "<Plug>(VM-Select-All)<Tab>", { desc = "Select all instances" })
+keymap.set("n", "<leader>vr", "<Plug>(VM-Start-Regex-Search)", { desc = "Start regex search for multiple cursors" })
+keymap.set("n", "<leader>vp", "<Plug>(VM-Add-Cursor-At-Pos)", { desc = "Add cursor at specified position" })
+keymap.set("v", "<leader>vv", visual_cursors_with_delay, { desc = "Create visual cursors with delay" })
+keymap.set("n", "<leader>vo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Visual Multi key mappings" })
