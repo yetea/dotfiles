@@ -21,6 +21,12 @@ return {
 		opts = {}, -- your configuration
 	},
 	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	},
+	{
 		"dstein64/vim-startuptime",
 		cmd = "StartupTime",
 		config = function()
@@ -57,15 +63,6 @@ return {
 			{ "<leader>ci", "<cmd>ConvertFindCurrent<CR>", desc = "Find convertable unit in current line" },
 			{ "<leader>cx", "<cmd>ConvertAll<CR>", desc = "Convert all of a specified unit" },
 		},
-	},
-	{
-		"MysticalDevil/inlay-hints.nvim",
-		event = "LspAttach",
-		dependencies = { "neovim/nvim-lspconfig" },
-
-		init = function()
-			require("inlay-hints").setup()
-		end,
 	},
 	{
 		"tris203/precognition.nvim",
