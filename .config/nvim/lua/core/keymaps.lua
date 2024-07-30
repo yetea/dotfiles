@@ -24,8 +24,8 @@ keymap.set("n", "n", "nzzzv", { desc = "Next search result and center" })
 keymap.set("n", "N", "Nzzzv", { desc = "Previous search result and center" })
 
 -- Buffers Navigation
-keymap.set("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete current buffer" })
-keymap.set("n", "<leader>bda", ":%bd|e#|bd#<CR>'\"", { desc = "Delete all buffers except current" })
+keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete current buffer" })
+keymap.set("n", "<leader>bk", "<cmd>%bd|e#|bd#<CR>'\"", { desc = "Delete all buffers except current" })
 
 -- Editing and Indentation
 keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
