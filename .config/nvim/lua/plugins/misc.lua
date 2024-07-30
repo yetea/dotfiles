@@ -59,6 +59,15 @@ return {
 		},
 	},
 	{
+		"MysticalDevil/inlay-hints.nvim",
+		event = "LspAttach",
+		dependencies = { "neovim/nvim-lspconfig" },
+
+		init = function()
+			require("inlay-hints").setup()
+		end,
+	},
+	{
 		"tris203/precognition.nvim",
 		--event = "VeryLazy",
 		opts = {

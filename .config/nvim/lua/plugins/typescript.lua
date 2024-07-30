@@ -17,6 +17,21 @@ return {
 			{ "<leader>tr", "<cmd>TypescriptRemoveUnused<cr>", desc = "Remove Unused" },
 			{ "<leader>tR", "<cmd>TypescriptRenameFile<cr>", desc = "Rename File" },
 		},
-		opts = {},
+		init = function()
+			require("typescript-tools").setup({
+				settings = {
+					tsserver_file_preferences = {
+						includeInlayParameterNameHints = "all",
+						includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayVariableTypeHints = true,
+						includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayEnumMemberValueHints = true,
+					},
+				},
+			})
+		end,
 	},
 }
