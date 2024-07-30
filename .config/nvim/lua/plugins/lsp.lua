@@ -19,6 +19,9 @@ return {
 							completion = {
 								callSnippet = "Replace",
 							},
+							diagnostics = {
+								globals = { "vim" },
+							},
 						},
 					},
 				},
@@ -56,6 +59,14 @@ return {
 				virtual_text = false,
 				virtual_lines = true,
 				severity_sort = true,
+				float = {
+					focusable = false,
+					style = "minimal",
+					border = "rounded",
+					source = "always",
+					header = "",
+					prefix = "",
+				},
 				signs = {
 					text = {
 						[vim.diagnostic.severity.ERROR] = "✘",
