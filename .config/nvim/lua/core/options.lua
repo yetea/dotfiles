@@ -45,3 +45,10 @@ opt.incsearch = true
 opt.mouse = ""
 opt.list = false
 opt.listchars = ""
+
+-- Code folding
+opt.foldenable = true
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
