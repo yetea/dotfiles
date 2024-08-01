@@ -60,6 +60,7 @@ return {
 
 			cmp.setup({
 				window = {
+					border = "rounded",
 					completion = cmp.config.window.bordered({
 						col_offset = -3,
 						side_padding = 0,
@@ -93,8 +94,7 @@ return {
 						luasnip.lsp_expand(args.body)
 					end,
 				},
-				completion = { completeopt = "menu,menuone,noinsert" },
-
+				completion = { border = "rounded", completeopt = "menu,menuone,noinsert" },
 				mapping = cmp.mapping.preset.insert({
 					["<C-n>"] = cmp.mapping.select_next_item(),
 					["<C-p>"] = cmp.mapping.select_prev_item(),
