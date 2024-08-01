@@ -2,26 +2,39 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+		},
 		opts = {
 			ensure_installed = {
 				"bash",
 				"c",
+				"css",
 				"diff",
+				"dockerfile",
+				"gitignore",
 				"html",
+				"javascript",
+				"json",
 				"lua",
 				"luadoc",
 				"markdown",
 				"markdown_inline",
 				"query",
+				"tsx",
+				"typescript",
 				"vim",
 				"vimdoc",
+				"yaml",
 			},
 			auto_install = true,
 			highlight = {
 				enable = true,
-				additional_vim_regex_highlighting = { "ruby" },
 			},
-			indent = { enable = true, disable = { "ruby" } },
+			indent = { enable = true },
+			autotag = {
+				enable = true,
+			},
 		},
 		config = function(_, opts)
 			require("nvim-treesitter.install").prefer_git = true
