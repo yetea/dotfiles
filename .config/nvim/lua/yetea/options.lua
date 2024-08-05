@@ -2,6 +2,7 @@ local opt = vim.opt
 
 opt.relativenumber = true
 opt.number = true
+opt.signcolumn = "yes"
 
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -17,8 +18,6 @@ opt.cursorline = true
 
 opt.termguicolors = true
 opt.background = "dark"
-opt.signcolumn = "yes"
-
 opt.backspace = "indent,eol,start"
 
 opt.clipboard:append("unnamedplus")
