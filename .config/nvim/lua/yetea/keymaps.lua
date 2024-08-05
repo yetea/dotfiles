@@ -6,6 +6,34 @@ vim.g.have_nerd_font = true
 -- Define the keymap variable for convenience
 local keymap = vim.keymap
 
+local set_colorscheme = function(name)
+	pcall(vim.cmd, "colorscheme " .. name)
+end
+local pick_colorscheme = function()
+	local init_scheme = vim.g.colors_name
+	local new_scheme = require("mini.pick").start({
+		source = {
+			items = vim.fn.getcompletion("", "color"),
+			preview = function(_, item)
+				set_colorscheme(item)
+			end,
+			choose = set_colorscheme,
+		},
+		mappings = {
+			preview = {
+				char = "<C-p>",
+				func = function()
+					local item = require("mini.pick").get_picker_matches()
+					pcall(vim.cmd, "colorscheme " .. item.current)
+				end,
+			},
+		},
+	})
+	if new_scheme == nil then
+		set_colorscheme(init_scheme)
+	end
+end
+
 -- Insert Mode Keymaps
 keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
 keymap.set("i", "<C-c>", "<Esc>", { desc = "Escape insert mode" })
@@ -22,6 +50,7 @@ keymap.set("n", ",", ",zzzv", { desc = "Repeat last search in opposite direction
 keymap.set("n", ";", ";zzzv", { desc = "Repeat last character search and center" })
 keymap.set("n", "n", "nzzzv", { desc = "Next search result and center" })
 keymap.set("n", "N", "Nzzzv", { desc = "Previous search result and center" })
+keymap.set("n", "<leader>fc", pick_colorscheme, { noremap = true, silent = true, desc = "Change Colorscheme" })
 
 -- Buffers Navigation
 keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete current buffer" })

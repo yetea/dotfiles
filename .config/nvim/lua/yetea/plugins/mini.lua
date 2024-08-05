@@ -76,11 +76,17 @@ return {
 			require("mini.ai").setup()
 			require("mini.basics").setup({
 				options = {
+					basic = true,
 					extra_ui = true,
 					win_borders = "double",
 				},
 				mappings = {
+					basic = true,
 					windows = true,
+				},
+				autocommands = {
+					basic = true,
+					relnum_in_visual_mode = true,
 				},
 			})
 			require("mini.bracketed").setup()
@@ -258,6 +264,9 @@ return {
 				autowrite = true,
 			})
 
+			require("mini.statusline").setup({
+				use_icons = true,
+			})
 			local animate = require("mini.animate")
 			animate.setup({
 				scroll = {

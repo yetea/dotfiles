@@ -1,14 +1,22 @@
 return {
 	{
-		"loctvl842/monokai-pro.nvim",
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			require("monokai-pro").setup({
-				filter = "octagon",
-				background_clear = { "float_win", "notify" },
-			})
-			vim.cmd("colorscheme monokai-pro")
+			require("nordic").load()
 		end,
 	},
+	-- {
+	-- 	"loctvl842/monokai-pro.nvim",
+	-- 	config = function()
+	-- 		require("monokai-pro").setup({
+	-- 			filter = "octagon",
+	-- 			background_clear = { "float_win", "notify" },
+	-- 		})
+	-- 		vim.cmd("colorscheme monokai-pro")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"catppuccin/nvim",
 	-- 	name = "catppuccin",
