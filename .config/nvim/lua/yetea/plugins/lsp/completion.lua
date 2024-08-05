@@ -62,12 +62,16 @@ return {
 				window = {
 					border = "rounded",
 					completion = cmp.config.window.bordered({
-						col_offset = -3,
+						winhighlight = "Normal:Pmenu,FloatBorder:SpecialCmpBorder,Search:None",
+						scrollbar = true,
+						border = "rounded",
+						col_offset = -1,
 						side_padding = 0,
 					}),
 					documentation = cmp.config.window.bordered({
-						col_offset = -3,
-						side_padding = 0,
+						winhighlight = "Normal:Pmenu,FloatBorder:SpecialCmpBorder,Search:None",
+						scrollbar = true,
+						border = "rounded",
 					}),
 				},
 				view = {
