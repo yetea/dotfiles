@@ -1,20 +1,23 @@
+# Nordic.nvim inspired Alacritty theme
+
 [colors]
+  [colors.primary]
+    background = '#242933'  # Base color - Dark background
+    foreground = '#D8DEE9'  # Base color - Light foreground
 
-# Default colors
-[colors.primary]
-background = "#282a3a" 
-foreground = "#eaf2f1" 
+  [colors.cursor]
+    text = '#2E3440'        # Cursor text color
+    cursor = '#D8DEE9'      # Cursor color
 
-# Normal colors
-[colors.normal]
-black   = "#161821"  
-red     = "#ff657a" 
-green   = "#bad761" 
-yellow  = "#ffd76d"  
-blue    = "#ff9b5e"  
-magenta = "#c39ac9"  
-cyan    = "#9cd1bb"  
-white   = "#eaf2f1"  
+  [colors.normal]
+    black   = '#3B4252'
+    red     = '#BF616A'
+    green   = '#A3BE8C'
+    yellow  = '#EBCB8B'
+    blue    = '#81A1C1'
+    magenta = '#B48EAD'
+    cyan    = '#88C0D0'
+    white   = '#E5E9F0'
 
 [env]
 TERM = "xterm-256color"
