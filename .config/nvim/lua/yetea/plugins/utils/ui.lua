@@ -154,29 +154,31 @@ return {
 		},
 	},
 	{
-		"shellRaining/hlchunk.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("hlchunk").setup({
-				chunk = {
-					enable = true,
-				},
+		"lukas-reineke/indent-blankline.nvim",
+		opts = function()
+			return {
 				indent = {
-					enable = true,
+					char = "│",
+					tab_char = "│",
 				},
-				line_num = {
-					enable = true,
-				},
-				blank = {
-					enable = true,
-					chars = {
-						"․",
+				scope = { show_start = false, show_end = false },
+				exclude = {
+					filetypes = {
+						"help",
+						"alpha",
+						"dashboard",
+						"neo-tree",
+						"Trouble",
+						"trouble",
+						"lazy",
+						"mason",
+						"notify",
+						"toggleterm",
+						"lazyterm",
 					},
-					style = {
-						{ vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"), "" },
-					},
 				},
-			})
+			}
 		end,
+		main = "ibl",
 	},
 }

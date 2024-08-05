@@ -264,9 +264,9 @@ return {
 				autowrite = true,
 			})
 
-			require("mini.statusline").setup({
-				use_icons = true,
-			})
+			-- require("mini.statusline").setup({
+			-- 	use_icons = true,
+			-- })
 			local animate = require("mini.animate")
 			animate.setup({
 				scroll = {

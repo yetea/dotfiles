@@ -3,6 +3,8 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 opt.signcolumn = "yes"
+opt.numberwidth = 5
+opt.statuscolumn = " %s%=%{v:relnum?v:relnum:v:lnum}%#WinSeparator#  "
 
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -15,6 +17,7 @@ opt.wrap = false
 opt.ignorecase = false
 
 opt.cursorline = true
+opt.cursorlineopt = "number"
 
 opt.termguicolors = true
 opt.background = "dark"
@@ -45,9 +48,20 @@ opt.mouse = ""
 opt.list = false
 opt.listchars = ""
 
+-- Windows
+opt.winblend = 0
+opt.pumblend = 0
+opt.pumheight = 10
+
 -- Code folding
 opt.foldenable = true
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+-- Automatically remove trailing whitespace.
+vim.cmd([[
+    match ExtraWhitespace /\s\+$/
+    autocmd BufWritePre * %s/\s\+$//e
+]])
