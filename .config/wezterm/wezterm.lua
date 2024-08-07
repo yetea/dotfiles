@@ -2,76 +2,24 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
+local function tab_title(tab_info)
+	local title = tab_info.tab_title
+	-- if the tab title is explicitly set, take that
+	if title and #title > 0 then
+		return title
+	end
+	-- Otherwise, use the title from the active pane
+	-- in that tab
+	return tab_info.active_pane.title
+end
+
 config = {
 	automatically_reload_config = true,
 	use_fancy_tab_bar = false,
 	tab_bar_at_bottom = false,
-	window_padding = {
-		left = 2,
-		right = 2,
-		top = 0,
-		bottom = 0,
-	},
-	wezterm.on("update-status", function(window, pane)
-		-- Workspace name
-		local stat = window:active_workspace()
-		local stat_color = "#b74e58"
-		-- It's a little silly to have workspace name all the time
-		-- Utilize this to display LDR or current key table name
-		if window:active_key_table() then
-			stat = window:active_key_table()
-			stat_color = "#88c0d0"
-		end
-		if window:leader_is_active() then
-			stat = "LDR"
-			stat_color = "#a97ea1"
-		end
-
-		local basename = function(s)
-			-- Nothing a little regex can't fix
-			return string.gsub(s, "(.*[/\\])(.*)", "%2")
-		end
-
-		-- Current working directory
-		local cwd = pane:get_current_working_dir()
-		if cwd then
-			if type(cwd) == "userdata" then
-				-- Wezterm introduced the URL object in 20240127-113634-bbcac864
-				cwd = basename(cwd.file_path)
-			else
-				-- 20230712-072601-f4abf8fd or earlier version
-				cwd = basename(cwd)
-			end
-		else
-			cwd = ""
-		end
-
-		-- Current command
-		local cmd = pane:get_foreground_process_name()
-		-- CWD and CMD could be nil (e.g. viewing log using Ctrl-Alt-l)
-		cmd = cmd and basename(cmd) or ""
-
-		-- Left status (left of the tab line)
-		window:set_left_status(wezterm.format({
-			{ Foreground = { Color = stat_color } },
-			{ Text = "  " },
-			{ Text = wezterm.nerdfonts.oct_table .. "  " .. stat },
-			{ Text = "  " },
-		}))
-
-		-- Right status
-		window:set_right_status(wezterm.format({
-			-- Wezterm has a built-in nerd fonts
-			-- https://wezfurlong.org/wezterm/config/lua/wezterm/nerdfonts.html
-			{ Text = wezterm.nerdfonts.md_folder .. "  " .. cwd },
-			{ Text = " | " },
-			{ Foreground = { Color = "#e7c173" } },
-			{ Text = wezterm.nerdfonts.fa_code .. "  " .. cmd },
-			"ResetAttributes",
-			{ Text = "  " },
-		}))
-	end),
-
+	show_new_tab_button_in_tab_bar = false,
+	window_padding = { left = "0.1cell", right = "0.1cell", top = 0, bottom = 0 },
+	default_prog = { "/bin/zsh", "-l" },
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
 	font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
@@ -85,18 +33,14 @@ config = {
 		selection_fg = "#D8DEE9",
 		selection_bg = "#2E3440",
 		tab_bar = {
-			background = "#191D24",
+			background = "transparent",
 			inactive_tab_edge = "rgba(28, 28, 28, 0.9)",
 			active_tab = {
-				bg_color = "#8FBCBB",
-				fg_color = "#282f3b",
+				bg_color = "transparent",
+				fg_color = "#8FBCBB",
 			},
 			inactive_tab = {
-				bg_color = "#282f3b",
-				fg_color = "#D8DEE9",
-			},
-			inactive_tab_hover = {
-				bg_color = "#282f3b",
+				bg_color = "transparent",
 				fg_color = "#D8DEE9",
 			},
 		},
