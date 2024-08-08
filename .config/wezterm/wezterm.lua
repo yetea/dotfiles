@@ -2,21 +2,8 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
-local function tab_title(tab_info)
-	local title = tab_info.tab_title
-	-- if the tab title is explicitly set, take that
-	if title and #title > 0 then
-		return title
-	end
-	-- Otherwise, use the title from the active pane
-	-- in that tab
-	return tab_info.active_pane.title
-end
-
 config = {
 	automatically_reload_config = true,
-	use_fancy_tab_bar = false,
-	tab_bar_at_bottom = false,
 	show_new_tab_button_in_tab_bar = false,
 	window_padding = { left = "0.1cell", right = "0.1cell", top = 0, bottom = 0 },
 	default_prog = { "/bin/zsh", "-l" },
