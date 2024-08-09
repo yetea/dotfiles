@@ -1,5 +1,4 @@
 return {
-	{ -- Autoformat
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
@@ -27,5 +26,4 @@ return {
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 			},
 		},
-	},
 }

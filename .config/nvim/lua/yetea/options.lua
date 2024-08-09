@@ -45,8 +45,9 @@ opt.hlsearch = true
 opt.incsearch = true
 
 opt.mouse = ""
-opt.list = false
-opt.listchars = ""
+-- show tab and trailing characters
+opt.list = true
+opt.listchars = { tab = "┊ ", trail = "·", space = "·", lead = "·" }
 
 -- Windows
 opt.winblend = 0

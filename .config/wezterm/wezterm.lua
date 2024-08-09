@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config = {
 	automatically_reload_config = true,
 	show_new_tab_button_in_tab_bar = false,
-	window_padding = { left = "0.1cell", right = "0.1cell", top = 0, bottom = 0 },
+	window_padding = { left = "0.5cell", right = "0.5cell", top = 0, bottom = 0 },
 	default_prog = { "/bin/zsh", "-l" },
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
@@ -13,7 +13,7 @@ config = {
 	font_size = 13,
 	colors = {
 		foreground = "#D8DEE9",
-		background = "#282f3b",
+		background = "#242933",
 		cursor_bg = "#D8DEE9",
 		cursor_border = "#D8DEE9",
 		cursor_fg = "#282f3b",
