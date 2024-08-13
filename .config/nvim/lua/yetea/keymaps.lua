@@ -7,31 +7,31 @@ vim.g.have_nerd_font = true
 local keymap = vim.keymap
 
 local set_colorscheme = function(name)
-	pcall(vim.cmd, "colorscheme " .. name)
+  pcall(vim.cmd, "colorscheme " .. name)
 end
 local pick_colorscheme = function()
-	local init_scheme = vim.g.colors_name
-	local new_scheme = require("mini.pick").start({
-		source = {
-			items = vim.fn.getcompletion("", "color"),
-			preview = function(_, item)
-				set_colorscheme(item)
-			end,
-			choose = set_colorscheme,
-		},
-		mappings = {
-			preview = {
-				char = "<C-p>",
-				func = function()
-					local item = require("mini.pick").get_picker_matches()
-					pcall(vim.cmd, "colorscheme " .. item.current)
-				end,
-			},
-		},
-	})
-	if new_scheme == nil then
-		set_colorscheme(init_scheme)
-	end
+  local init_scheme = vim.g.colors_name
+  local new_scheme = require("mini.pick").start({
+    source = {
+      items = vim.fn.getcompletion("", "color"),
+      preview = function(_, item)
+        set_colorscheme(item)
+      end,
+      choose = set_colorscheme,
+    },
+    mappings = {
+      preview = {
+        char = "<C-p>",
+        func = function()
+          local item = require("mini.pick").get_picker_matches()
+          pcall(vim.cmd, "colorscheme " .. item.current)
+        end,
+      },
+    },
+  })
+  if new_scheme == nil then
+    set_colorscheme(init_scheme)
+  end
 end
 
 -- Insert Mode Keymaps
@@ -76,24 +76,24 @@ keymap.set("n", "Q", "<nop>", { desc = "Disable Ex mode" })
 keymap.set("n", "j", "gj", { desc = "Move down by display line" })
 keymap.set("n", "k", "gk", { desc = "Move up by display line" })
 keymap.set(
-	"n",
-	"<leader>s",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "Replace word under cursor" }
+  "n",
+  "<leader>s",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Replace word under cursor" }
 )
 keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
 keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
+  vim.cmd("so")
 end, { desc = "Source current file" })
 
 -- Vim visual multi
 local function visual_cursors_with_delay()
-	-- Execute the vm-visual-cursors command.
-	vim.cmd('silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"')
-	-- Introduce delay via VimScript's 'sleep' (set to 500 milliseconds here).
-	vim.cmd("sleep 200m")
-	-- Press 'A' in normal mode after the delay.
-	vim.cmd('silent! execute "normal! A"')
+  -- Execute the vm-visual-cursors command.
+  vim.cmd('silent! execute "normal! \\<Plug>(VM-Visual-Cursors)"')
+  -- Introduce delay via VimScript's 'sleep' (set to 500 milliseconds here).
+  vim.cmd("sleep 200m")
+  -- Press 'A' in normal mode after the delay.
+  vim.cmd('silent! execute "normal! A"')
 end
 keymap.set("n", "<leader>va", "<Plug>(VM-Select-All)<Tab>", { desc = "Select all instances" })
 keymap.set("n", "<leader>vr", "<Plug>(VM-Start-Regex-Search)", { desc = "Start regex search for multiple cursors" })
@@ -105,14 +105,14 @@ keymap.set("n", "<leader>vo", "<Plug>(VM-Toggle-Mappings)", { desc = "Toggle Vis
 keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
 keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
 keymap.set("n", "[e", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Go to next error" })
 keymap.set("n", "]e", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Go to previous error" })
 keymap.set("n", "[w", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
 end, { desc = "Go to next warning" })
 keymap.set("n", "]w", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
 end, { desc = "Go to previous warning" })
