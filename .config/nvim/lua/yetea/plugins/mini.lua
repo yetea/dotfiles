@@ -262,6 +262,11 @@ return {
       })
       require("mini.sessions").setup({
         autowrite = true,
+        hooks = {
+          pre = {
+            write = function() vim.api.nvim_exec_autocmds('User', { pattern = 'SessionSavePre' }) end,
+          },
+        },
       })
 
       local animate = require("mini.animate")

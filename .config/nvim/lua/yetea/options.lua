@@ -3,8 +3,8 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 opt.signcolumn = "yes"
-opt.numberwidth = 5
-opt.statuscolumn = " %s%=%{v:relnum?v:relnum:v:lnum}%#WinSeparator#  "
+opt.numberwidth = 2
+opt.statuscolumn = "%= %{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum) : ''}%=%s"
 
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -71,7 +71,7 @@ opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldtext = 'v:lua.custom_fold_text()'
 opt.foldlevel = 99
-opt.foldlevelstart = 1
+opt.foldlevelstart = 99
 opt.fillchars = { eob = "-", fold = " " }
 opt.foldenable = true
 opt.foldnestmax = 3
