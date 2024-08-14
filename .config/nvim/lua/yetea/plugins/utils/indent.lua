@@ -6,7 +6,7 @@ return {
       chunk = {
         enable = true,
         style = {
-          { fg = "#be9db8" },
+          { fg = "#c0c8d8" },
           { fg = "#c5727a" },
         },
         chars = {
@@ -19,19 +19,6 @@ return {
       },
       indent = {
         enable = true
-      },
-      line_num = {
-        enable = true,
-        style = "#be9db8"
-      },
-      blank = {
-        enable = true,
-        chars = {
-          "․",
-        },
-        style = {
-          { vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"), "" },
-        },
       },
     })
   end
