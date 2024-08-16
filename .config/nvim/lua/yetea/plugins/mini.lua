@@ -185,10 +185,6 @@ return {
           todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
           note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 
-          -- Cloaking Passwords
-          pw = password_table,
-          mattern = mattern_table,
-
           -- Highlight hex color strings (`#rrggbb`)
           shorthand = {
             pattern = "()#%x%x%x()%f[^%x%w]",
@@ -206,22 +202,22 @@ return {
           hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
         },
       })
-      -- require("mini.indentscope").setup({
-      --   draw = {
-      --     animation = function()
-      --       return 1
-      --     end,
-      --   },
-      --   symbol = "│",
-      -- })
+      require("mini.indentscope").setup({
+        draw = {
+          animation = function()
+            return 1
+          end,
+        },
+        symbol = "┆",
+      })
       require("mini.jump").setup()
       require("mini.jump2d").setup()
       require("mini.move").setup()
       require("mini.pairs").setup()
       require("mini.operators").setup()
       local win_config = function()
-        height = math.floor(0.618 * vim.o.lines)
-        width = math.floor(0.3 * vim.o.columns)
+        local height = math.floor(0.618 * vim.o.lines)
+        local width = math.floor(0.3 * vim.o.columns)
         return {
           anchor = "NW",
           height = height,
@@ -269,17 +265,16 @@ return {
         },
       })
 
-      local animate = require("mini.animate")
-      animate.setup({
+      require("mini.animate").setup({
         scroll = {
           enable = false,
         },
         cursor = {
-          timing = animate.gen_timing.cubic({ duration = 50, unit = "total" }),
+          timing = require("mini.animate").gen_timing.cubic({ duration = 50, unit = "total" }),
         },
       })
       require("mini.surround").setup()
-      require("mini.tabline").setup()
+      require("mini.tabline").setup({})
       require("mini.trailspace").setup()
       require("mini.visits").setup()
     end,

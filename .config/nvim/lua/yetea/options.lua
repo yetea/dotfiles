@@ -1,54 +1,65 @@
 local opt = vim.opt
 
+-- Line Numbers
 opt.relativenumber = true
 opt.number = true
-opt.signcolumn = "yes"
 opt.numberwidth = 2
-opt.statuscolumn = "%= %{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum) : ''}%=%s"
 
+-- Sign Column
+opt.signcolumn = "yes"
+
+-- Indentation
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 opt.breakindent = true
 
+-- Wrapping
 opt.wrap = false
 
+-- Search
 opt.ignorecase = false
+opt.hlsearch = true
+opt.incsearch = true
 
+-- Cursor
 opt.cursorline = true
 opt.cursorlineopt = "number"
 
+-- Colors and Appearance
 opt.termguicolors = true
 opt.background = "dark"
-opt.backspace = "indent,eol,start"
+opt.list = true
+opt.listchars = { tab = '│ ', trail = "·", space = "·", lead = "·" }
 
+-- Clipboard
 opt.clipboard:append("unnamedplus")
 
+-- Split Behavior
 opt.splitright = true
 opt.splitbelow = true
 
+-- File Handling
 opt.swapfile = false
 opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
+-- Command Line
 opt.showmode = false
 opt.showcmd = false
 opt.cmdheight = 0
 
+-- Performance
 opt.updatetime = 250
 opt.timeoutlen = 300
+
+-- Scrolling
 opt.scrolloff = 10
 
-opt.hlsearch = true
-opt.incsearch = true
-
+-- Mouse
 opt.mouse = ""
-
--- show tab and trailing characters
-opt.list = true
-opt.listchars = { trail = "·", space = "·", lead = "·" }
 
 -- Windows
 opt.winblend = 0
@@ -62,9 +73,8 @@ function _G.custom_fold_text()
   local line_count = vim.v.foldend - vim.v.foldstart + 1
   local total_lines = vim.fn.line('$')
   local suffix = (" ...  %d %d%% "):format(line_count, line_count / total_lines * 100)
-  local newline = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
 
-  return table.concat({ line_start .. suffix, line_end }, newline)
+  return table.concat({ line_start .. suffix, line_end })
 end
 
 opt.foldmethod = "expr"
@@ -77,8 +87,20 @@ opt.foldenable = true
 opt.foldnestmax = 3
 opt.foldminlines = 1
 
--- Automatically remove trailing whitespace.
+-- Whitespace
 vim.cmd([[
     match ExtraWhitespace /\s\+$/
     autocmd BufWritePre * %s/\s\+$//e
 ]])
+
+-- Set highlight groups to match Nordic theme
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.cmd [[
+      highlight MiniTablineCurrent guifg=#eceff4 guibg=#5e81ac
+      highlight MiniTablineHidden guifg=#c0c8d8 guibg=#2E3440
+      highlight MiniTablineFill guifg=#2E3440 guibg=#191d24
+    ]]
+  end,
+})
