@@ -3,10 +3,6 @@ local opt = vim.opt
 -- Line Numbers
 opt.relativenumber = true
 opt.number = true
-opt.numberwidth = 2
-
--- Sign Column
-opt.signcolumn = "yes"
 
 -- Indentation
 opt.tabstop = 2
@@ -94,13 +90,13 @@ vim.cmd([[
 ]])
 
 -- Set highlight groups to match Nordic theme
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    vim.cmd [[
-      highlight MiniTablineCurrent guifg=#eceff4 guibg=#5e81ac
-      highlight MiniTablineHidden guifg=#c0c8d8 guibg=#2E3440
-      highlight MiniTablineFill guifg=#2E3440 guibg=#191d24
-    ]]
-  end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern = "*",
+--   callback = function()
+--     vim.cmd [[
+--       highlight MiniTablineCurrent guifg=#81a1c1 guibg=#2E3440
+--       highlight MiniTablineHidden guifg=#c0c8d8 guibg=#222630
+--       highlight MiniTablineFill guifg=#2E3440 guibg=#191d24
+--     ]]
+--   end,
+-- })
