@@ -1,8 +1,11 @@
 local opt = vim.opt
 
 -- Line Numbers
-opt.relativenumber = true
 opt.number = true
+opt.relativenumber = true
+opt.signcolumn = "yes"
+opt.numberwidth = 2
+opt.statuscolumn = " %s%=%{v:relnum?v:relnum:v:lnum}%#WinSeparator#  "
 
 -- Indentation
 opt.tabstop = 2
@@ -22,7 +25,7 @@ opt.incsearch = true
 -- Cursor
 opt.cursorline = true
 opt.cursorlineopt = "number"
-
+opt.laststatus = 3
 -- Colors and Appearance
 opt.termguicolors = true
 opt.background = "dark"
@@ -63,25 +66,25 @@ opt.pumblend = 0
 opt.pumheight = 10
 
 -- Folding
-function _G.custom_fold_text()
-  local line_start = vim.fn.getline(vim.v.foldstart)
-  local line_end = vim.fn.getline(vim.v.foldend)
-  local line_count = vim.v.foldend - vim.v.foldstart + 1
-  local total_lines = vim.fn.line('$')
-  local suffix = (" ...  %d %d%% "):format(line_count, line_count / total_lines * 100)
+-- function _G.custom_fold_text()
+--   local line_start = vim.fn.getline(vim.v.foldstart)
+--   local line_end = vim.fn.getline(vim.v.foldend)
+--   local line_count = vim.v.foldend - vim.v.foldstart + 1
+--   local total_lines = vim.fn.line('$')
+--   local suffix = (" ...  %d %d%% "):format(line_count, line_count / total_lines * 100)
+--
+--   return table.concat({ line_start .. suffix, line_end })
+-- end
 
-  return table.concat({ line_start .. suffix, line_end })
-end
-
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
-opt.foldtext = 'v:lua.custom_fold_text()'
-opt.foldlevel = 99
-opt.foldlevelstart = 99
-opt.fillchars = { eob = "-", fold = " " }
-opt.foldenable = true
-opt.foldnestmax = 3
-opt.foldminlines = 1
+-- opt.foldmethod = "indent"
+-- -- opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- opt.foldtext = 'v:lua.custom_fold_text()'
+-- opt.foldlevel = 99
+-- opt.foldlevelstart = 99
+-- opt.fillchars = { eob = "-", fold = " " }
+-- opt.foldenable = true
+-- opt.foldnestmax = 3
+-- opt.foldminlines = 1
 
 -- Whitespace
 vim.cmd([[

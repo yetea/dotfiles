@@ -52,6 +52,12 @@ keymap.set("n", "n", "nzzzv", { desc = "Next search result and center" })
 keymap.set("n", "N", "Nzzzv", { desc = "Previous search result and center" })
 keymap.set("n", "<leader>fc", pick_colorscheme, { noremap = true, silent = true, desc = "Change Colorscheme" })
 
+-- Selection
+keymap.set("n", "<leader>sa", "ggVG", { desc = "Select all" })
+keymap.set("n", "<leader>pa", "ggVGp", { desc = "Select all and paste" })
+keymap.set("n", "<leader>L", "vg_", { desc = "Select to end of line" })
+keymap.set("n", "<leader>gp", "`[v`]`", { desc = "Select pasted text" })
+
 -- Buffers Navigation
 keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete current buffer" })
 keymap.set("n", "<leader>bk", "<cmd>%bd|e#|bd#<CR>'\"", { desc = "Delete all buffers except current" })

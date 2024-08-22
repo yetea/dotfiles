@@ -149,12 +149,12 @@ return {
 
     require("mini.cursorword").setup()
     require("mini.extra").setup()
-    require("mini.files").setup({
-      windows = {
-        preview = true,
-        width_preview = 80,
-      },
-    })
+    -- require("mini.files").setup({
+    --   windows = {
+    --     preview = true,
+    --     width_preview = 80,
+    --   },
+    -- })
     require("mini.hipatterns").setup({
       tailwind = {
         enabled = true,
@@ -212,7 +212,6 @@ return {
     require("mini.jump").setup()
     require("mini.jump2d").setup()
     require("mini.move").setup()
-    require("mini.notify").setup()
     require("mini.pairs").setup()
     require("mini.operators").setup()
     local win_config = function()
@@ -274,7 +273,6 @@ return {
       },
     })
     require("mini.surround").setup()
-    -- require("mini.tabline").setup({})
     require("mini.trailspace").setup()
     require("mini.visits").setup()
   end,
