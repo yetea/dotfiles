@@ -1,21 +1,9 @@
 return {
-	"FabijanZulj/blame.nvim",
-	cmd = "ToggleBlame",
-		-- stylua: ignore
-		keys = {
-			{ '<leader>gb', '<cmd>BlameToggle virtual<CR>', desc = 'Git blame' },
-			{ '<leader>gB', '<cmd>BlameToggle window<CR>', desc = 'Git blame (window)' },
-		},
+	"f-person/git-blame.nvim",
 	opts = {
-		date_format = "%Y-%m-%d %H:%M",
-		merge_consecutive = false,
-		max_summary_width = 30,
-		mappings = {
-			commit_info = "K",
-			stack_push = ">",
-			stack_pop = "<",
-			show_commit = "<CR>",
-			close = { "<Esc>", "q" },
-		},
+		enabled = true,
+		message_template = " <summary> • <date> • <author> • <<sha>>",
+		date_format = "%m-%d-%Y %H:%M:%S",
+		virtual_text_column = 1,
 	},
 }
