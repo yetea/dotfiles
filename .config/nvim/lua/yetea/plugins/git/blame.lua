@@ -2,8 +2,8 @@ return {
 	"f-person/git-blame.nvim",
 	opts = {
 		enabled = true,
-		message_template = " <summary> • <date> • <author> • <<sha>>",
-		date_format = "%m-%d-%Y %H:%M:%S",
+		message_template = " <author> • <summary> • <date> ",
+		date_format = "%r",
 		virtual_text_column = 1,
 	},
 }
