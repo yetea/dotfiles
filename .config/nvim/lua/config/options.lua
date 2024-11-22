@@ -29,8 +29,6 @@ opt.laststatus = 3
 -- Colors and Appearance
 opt.termguicolors = true
 opt.background = "dark"
-opt.list = true
-opt.listchars = { tab = '│ ', trail = "·", space = "·", lead = "·" }
 
 -- Clipboard
 opt.clipboard:append("unnamedplus")
