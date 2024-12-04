@@ -21,7 +21,7 @@ config.font_size = 13
 -- Color Scheme
 config.colors = {
 	foreground = "#D8DEE9",
-	background = "#242933",
+	background = "#282F3B",
 	cursor_bg = "#D8DEE9",
 	cursor_border = "#D8DEE9",
 	cursor_fg = "#282f3b",
