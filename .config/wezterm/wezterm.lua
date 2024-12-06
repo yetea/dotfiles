@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- General Settings
@@ -14,7 +13,7 @@ config.tab_bar_at_bottom = false
 config.default_prog = { "/bin/zsh", "-l" }
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
-config.window_padding = { left = 2, right = 2, top = 0, bottom = 0 }
+config.window_padding = { left = 5, right = 5, top = 0, bottom = 0 }
 
 -- Font Settings
 config.font_size = 13
