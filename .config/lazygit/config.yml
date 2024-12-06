@@ -1,0 +1,6 @@
+gui:
+  theme:
+    inactiveBorderColor:
+      - "#4C566A" # nordic
+  border: "double"
+disableStartupPopups: true
