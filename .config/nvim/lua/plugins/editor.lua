@@ -52,5 +52,11 @@ return {
     opts = {
       preset = "modern",
     },
+    config = function(_, opts)
+      local wk = require("which-key")
+      wk.setup(opts)
+      vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#c0c8d8" })
+      vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "#232934" })
+    end,
   },
 }
