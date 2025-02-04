@@ -1,0 +1,11 @@
+cursor-style = block
+
+mouse-hide-while-typing = true
+
+window-padding-balance = true
+window-save-state = always
+window-decoration = true
+
+macos-option-as-alt = true
+
+command = /bin/zsh

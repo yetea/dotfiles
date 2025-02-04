@@ -23,10 +23,6 @@ config.freetype_load_target = "Normal"
 config.bold_brightens_ansi_colors = false
 
 config.warn_about_missing_glyphs = false
-config.font = wezterm.font({
-  family = "JetBrainsMono Nerd Font",
-  weight = "Medium",
-})
 
 config.colors = {
   foreground = "#D8DEE9",

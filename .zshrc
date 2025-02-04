@@ -21,11 +21,20 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+
+# editing mode
+set -o -vi
+
+export VISUAL=nvim
+export EDITOR=nvim
+export BROWSER="vivaldi"
+
 # aliases
 alias ls="eza -a --icons=always"
 alias reload-zsh="source ~/.zshrc"
 alias edit-zsh="nvim ~/.zshrc"
 alias v="nvim"
+alias t="tmux"
 alias e="exit"
 alias dev="cd Developer"
 alias cd="z"
