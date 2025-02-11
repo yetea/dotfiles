@@ -1,5 +1,5 @@
 customCommands:
-  - key: <c-a>
+  - key: <c-c>
     description: Pick AI commit
     command: aicommit2
     context: files
@@ -10,9 +10,5 @@ customCommands:
     command: aicommit2 --no-verify
     context: files
     subprocess: true
-gui:
-  theme:
-    inactiveBorderColor:
-      - "#4C566A" # nordic
-  border: "double"
 disableStartupPopups: true
+
