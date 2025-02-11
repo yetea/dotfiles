@@ -59,4 +59,19 @@ return {
       vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "#232934" })
     end,
   },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          explorer = {
+            auto_close = true,
+          },
+          files = {
+            hidden = true,
+          },
+        },
+      },
+    },
+  },
 }

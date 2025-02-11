@@ -23,8 +23,6 @@ bindkey '^[[B' history-search-forward
 
 
 # editing mode
-set -o -vi
-
 export VISUAL=nvim
 export EDITOR=nvim
 export BROWSER="vivaldi"
