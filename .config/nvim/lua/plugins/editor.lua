@@ -62,6 +62,7 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      lazygit = {},
       picker = {
         sources = {
           explorer = {
@@ -73,5 +74,22 @@ return {
         },
       },
     },
+  },
+  {
+    "davidfriar/tserrors.nvim",
+    dependencies = {
+      "MeanderingProgrammer/render-markdown.nvim",
+    },
+    --- @class (exact) tserrors.UserOptions
+    opts = {},
+  },
+  {
+    "willothy/flatten.nvim",
+    config = true,
+    -- or pass configuration with
+    -- opts = {  }
+    -- Ensure that it runs first to minimize delay when opening file from terminal
+    lazy = false,
+    priority = 1001,
   },
 }
